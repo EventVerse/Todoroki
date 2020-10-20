@@ -149,11 +149,12 @@ async def new(ctx, amount=1):
   embed = discord.Embed(title=f"Tvoj ticket bol vytvorený!", color=0xe21830)
   await ctx.send(embed=embed, delete_after=3.0)
   
+
   guild = ctx.message.guild
   Role1 = guild.get_role(760145600288260135)
   Role2 = guild.get_role(760141416701362206)
   Role3 = guild.get_role(760145658040156180)
-  User = guild.get_member(ctx.author)
+  User = ctx.author
   Bots = guild.get_role(760143211657953319)
 
   channel = await guild.create_text_channel("ticket")
