@@ -128,14 +128,14 @@ for filename in os.listdir('./cogs/'):
 @client.command()
 async def navrh(ctx, *, link, amount=1):
     await ctx.channel.purge(limit=amount)
-    embed = discord.Embed(title=f"Tvoj návrh bol zaznamenaný!", color=0xe21830)
+    embed = discord.Embed(title=f"Tvoj návrh bol zaznamenaný!", color=0xa47dff)
     await ctx.send(embed=embed, delete_after=5.0)
 
     channel = client.get_channel(760140761437438002)
     yes = "<:yes:767754158358659092>"
     no = "<:no:767754183444398101>"
 
-    embed = discord.Embed(title="**Návrhy**", color=0xe21830, timestamp=ctx.message.created_at)
+    embed = discord.Embed(title="**Návrhy**", color=0xa47dff, timestamp=ctx.message.created_at)
     embed.add_field(name="Hlasovanie o návrhu", value=link, inline=False)
     embed.set_footer(text=f"{client.user.name}", icon_url=client.user.avatar_url)
 
@@ -146,7 +146,7 @@ async def navrh(ctx, *, link, amount=1):
 @client.command()
 async def new(ctx, amount=1):
   await ctx.channel.purge(limit=amount)
-  embed = discord.Embed(title=f"Tvoj ticket bol vytvorený!", color=0xe21830)
+  embed = discord.Embed(title=f"Tvoj ticket bol vytvorený!", color=0xa47dff)
   await ctx.send(embed=embed, delete_after=3.0)
   
 
@@ -189,7 +189,7 @@ async def new(ctx, amount=1):
   await channel.edit(overwrites=overwrites)
 
 
-  embed = discord.Embed(title=f"**Vitaj v tvojom tickete, {ctx.author.name}**", color=0xe21830)
+  embed = discord.Embed(title=f"**Vitaj v tvojom tickete, {ctx.author.name}**", color=0xa47dff)
   embed.add_field(name="Ako postupovať?", value="Teraz, keď už máš vytvorený ticket, prichádza tá ťažšia časť.  Popíš nám tvoj problém. O malú chvílu sa ti bude niekto z AT venovať!")
   embed.set_footer(text="Ticket môže zavrieť iba člen AT!", icon_url=client.user.avatar_url)
 
