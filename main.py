@@ -5,8 +5,11 @@ import discord
 import json
 import os
 import dotenv
+import asyncio
 
-from discord.ext import commands
+from asyncio import sleep
+
+from discord.ext import commands, tasks
 from dotenv import load_dotenv
 
 
@@ -29,7 +32,17 @@ async def on_ready():
 
     # guild_members = len(set(client.get_all_members()))
     # await client.change_presence(activity=discord.Game(name='with {} users!'.format(guild_members)))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="EventVerse"))
+
+@tasks.loop(seconds=10)
+async def name_change():
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="EventVerse"))
+  await sleep(10)
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing,name="www.eventverse.fun"))
+  await sleep(10)
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="ľudí na EventVerse"))
+  name_change.before_loop(client.wait_until_ready()) 
+  name_change.start()
+    
 
 
 @client.event
